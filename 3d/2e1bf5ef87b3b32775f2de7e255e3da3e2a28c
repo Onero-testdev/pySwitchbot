@@ -1,0 +1,22 @@
+tests/test_fan.py
+  s_8eb67cfb690df0::t_8d9c5f24700974 527-534,542
+  s_8eb67cfb690df0::t_97b1d4c419d7be 506-526,535-541,543-545
+tests/test_adv_parser.py
+  s_8eb67cfb690df0::t_2decfef2803411 1995-2000
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "3d2e1bf5ef87b3b32775f2de7e255e3da3e2a28c",
+  "prompts": {},
+  "sessions": {
+    "s_8eb67cfb690df0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "98bf04bf-4447-4909-b7fd-f94c50161dcc",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
