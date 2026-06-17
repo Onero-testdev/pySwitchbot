@@ -747,3 +747,14 @@ def test_2pm_adv_parses_distinct_per_channel_modes() -> None:
     parsed = process_relay_switch_2pm(None, mfr_data)
     assert parsed[1]["mode"] == 0x3
     assert parsed[2]["mode"] == 0x5
+
+
+@pytest.mark.parametrize("mfr_data", [None, b"", b"\x00" * 4, b"\x00" * 14])
+def test_2pm_adv_short_mfr_data_returns_empty(mfr_data: bytes | None) -> None:
+    """
+    Truncated advertisements must not raise.
+
+    The parser reads up to mfr_data[14] (roller position); anything shorter
+    than 15 bytes must degrade to an empty dict instead of raising IndexError.
+    """
+    assert process_relay_switch_2pm(None, mfr_data) == {}

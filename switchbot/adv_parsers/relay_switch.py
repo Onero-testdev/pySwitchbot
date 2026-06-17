@@ -47,7 +47,9 @@ def process_relay_switch_2pm(
     data: bytes | None, mfr_data: bytes | None
 ) -> dict[int, dict[str, Any]]:
     """Process Relay Switch 2PM services data."""
-    if mfr_data is None:
+    # Highest index read below is mfr_data[14] (roller position), so guard
+    # against truncated advertisements that would otherwise raise IndexError.
+    if mfr_data is None or len(mfr_data) < 15:
         return {}
 
     return {

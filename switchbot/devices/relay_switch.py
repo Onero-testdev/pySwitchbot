@@ -237,8 +237,9 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
 
     @update_after_operation
     async def open(self) -> bool:
-        """Send open command. 0 - performance mode, 1 - unfelt mode."""
-        result = await self._send_command(COMMAND_OPEN)
+        """Open the roller fully (device position 0, or 100 when reversed)."""
+        position = 100 if self._reverse else 0
+        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
         if success := self._check_command_result(result, 0, {1}):
             self._is_opening = True
             self._is_closing = False
@@ -246,8 +247,9 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
 
     @update_after_operation
     async def close(self) -> bool:
-        """Send close command. 0 - performance mode, 1 - unfelt mode."""
-        result = await self._send_command(COMMAND_CLOSE)
+        """Close the roller fully (device position 100, or 0 when reversed)."""
+        position = 0 if self._reverse else 100
+        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
         if success := self._check_command_result(result, 0, {1}):
             self._is_closing = True
             self._is_opening = False
@@ -262,8 +264,11 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
         return success
 
     @update_after_operation
-    async def set_position(self, position: int, mode: int = 0) -> bool:
-        """Send position command (0-100) to device. 0 - performance mode, 1 - unfelt mode."""
+    async def set_position(self, position: int) -> bool:
+        """Send position command (0-100) to device."""
+        if self._reverse:
+            position = 100 - position
+        position = max(0, min(100, position))
         result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
         if success := self._check_command_result(result, 0, {1}):
             prev = self._get_adv_value("position", channel=1)
