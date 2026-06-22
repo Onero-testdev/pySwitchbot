@@ -1,0 +1,24 @@
+tests/test_relay_switch.py
+  s_e99f0297875622::t_6a887d2ce40212 517-519
+  s_e99f0297875622::t_15b35722a884d0 529-531
+switchbot/devices/relay_switch.py
+  s_e99f0297875622::t_f897e24ec37457 236-240,245,254,273
+switchbot/adv_parsers/relay_switch.py
+  s_e99f0297875622::t_d88399f110260e 48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "0387838779bd2eff18a2df0052d82a5825117603",
+  "prompts": {},
+  "sessions": {
+    "s_e99f0297875622": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6797fabd-a368-46db-b66b-a0f3c6b00c8d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
