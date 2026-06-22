@@ -514,7 +514,9 @@ async def test_2pm_open() -> None:
     """Test open command for 2PM roller mode."""
     device = create_2pm_device_with_position()
     await device.open()
-    device._send_command.assert_called_with(relay_switch.COMMAND_OPEN)
+    device._send_command.assert_called_with(
+        relay_switch.COMMAND_POSITION.format(f"{0:02X}")
+    )
     assert device.is_opening() is True
     assert device.is_closing() is False
 
@@ -524,7 +526,9 @@ async def test_2pm_close() -> None:
     """Test close command for 2PM roller mode."""
     device = create_2pm_device_with_position()
     await device.close()
-    device._send_command.assert_called_with(relay_switch.COMMAND_CLOSE)
+    device._send_command.assert_called_with(
+        relay_switch.COMMAND_POSITION.format(f"{100:02X}")
+    )
     assert device.is_opening() is False
     assert device.is_closing() is True
 

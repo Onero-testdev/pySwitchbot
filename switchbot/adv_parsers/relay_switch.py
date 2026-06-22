@@ -45,7 +45,7 @@ def process_garage_door_opener(
 
 def process_relay_switch_2pm(
     data: bytes | None, mfr_data: bytes | None
-) -> dict[int, dict[str, Any]]:
+) -> dict[int | str, dict[str, Any] | int]:
     """Process Relay Switch 2PM services data."""
     # Highest index read below is mfr_data[14] (roller position), so guard
     # against truncated advertisements that would otherwise raise IndexError.

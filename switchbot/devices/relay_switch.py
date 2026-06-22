@@ -56,8 +56,6 @@ MULTI_CHANNEL_COMMANDS_GET_VOLTAGE_AND_CURRENT = {
 }
 
 # roller mode command
-COMMAND_OPEN = f"{COMMAND_CONTROL}0D040001"
-COMMAND_CLOSE = f"{COMMAND_CONTROL}0D046401"
 COMMAND_POSITION = f"{COMMAND_CONTROL}0D04{{}}01"
 COMMAND_STOP = f"{COMMAND_CONTROL}0D00"
 
@@ -235,12 +233,16 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
         """Return mode."""
         return self._get_adv_value("mode", channel=1)
 
+    async def _send_position(self, position: int) -> bool:
+        """Send a roller position command (0-100) and return success."""
+        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
+        return self._check_command_result(result, 0, {1})
+
     @update_after_operation
     async def open(self) -> bool:
         """Open the roller fully (device position 0, or 100 when reversed)."""
         position = 100 if self._reverse else 0
-        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
-        if success := self._check_command_result(result, 0, {1}):
+        if success := await self._send_position(position):
             self._is_opening = True
             self._is_closing = False
         return success
@@ -249,8 +251,7 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
     async def close(self) -> bool:
         """Close the roller fully (device position 100, or 0 when reversed)."""
         position = 0 if self._reverse else 100
-        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
-        if success := self._check_command_result(result, 0, {1}):
+        if success := await self._send_position(position):
             self._is_closing = True
             self._is_opening = False
         return success
@@ -269,8 +270,7 @@ class SwitchbotRelaySwitch2PM(SwitchbotRelaySwitch, SwitchbotBaseCover):
         if self._reverse:
             position = 100 - position
         position = max(0, min(100, position))
-        result = await self._send_command(COMMAND_POSITION.format(f"{position:02X}"))
-        if success := self._check_command_result(result, 0, {1}):
+        if success := await self._send_position(position):
             prev = self._get_adv_value("position", channel=1)
             self._update_motion_direction(
                 True,
