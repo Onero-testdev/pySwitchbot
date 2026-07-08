@@ -1,0 +1,33 @@
+switchbot/adv_parsers/climate_panel.py
+  s_23cb1f7e9187f5::t_aba1b51709c09f 28-32,44-47
+switchbot/devices/climate_panel.py
+  s_23cb1f7e9187f5::t_de0f981e6a7f42 14
+  s_23cb1f7e9187f5::t_29af592dbf2a91 1-13,15-52
+tests/test_climate_panel.py
+  s_23cb1f7e9187f5::t_0e9041041dd6fb 1-60
+switchbot/__init__.py
+  s_23cb1f7e9187f5::t_8f5b50315756d7 43
+  s_23cb1f7e9187f5::t_d3affe5919c3c5 109
+tests/test_adv_parser.py
+  s_23cb1f7e9187f5::t_a1b9094601f0d3 3753-3756
+  s_23cb1f7e9187f5::t_3d2b602c7118fd 4173-4176
+  s_23cb1f7e9187f5::t_483eb3917d2e00 3731-3734
+tests/__init__.py
+  s_23cb1f7e9187f5::t_b6d566ac4b571f 173-195
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "57b5d10e569bb4e21b5202f368ab60961d7accdd",
+  "prompts": {},
+  "sessions": {
+    "s_23cb1f7e9187f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0b8befe2-1419-4279-9017-5b9e992ce4e2",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
