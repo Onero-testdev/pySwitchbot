@@ -1,0 +1,25 @@
+switchbot/devices/fan.py
+  s_7555072531523e::t_0ada3cfe3f5f55 349-358
+  s_7555072531523e::t_a4bef797f1501c 404,407-428
+  s_7555072531523e::t_01e34bc6793db4 327-329
+tests/test_fan.py
+  s_7555072531523e::t_aef5b44b74cac5 454-511
+  s_7555072531523e::t_92e85dafb6c010 34-38,58-59
+  s_7555072531523e::t_9063c346f38a9d 405-409
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "34820d6ebf6778af45203cbe8d968374f817f7d3",
+  "prompts": {},
+  "sessions": {
+    "s_7555072531523e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d610ed33-8799-4d81-b58d-761535af525d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
