@@ -1,0 +1,23 @@
+switchbot/adv_parser.py
+  s_7555072531523e::t_a8d85175fb31a9 681-692
+switchbot/devices/device.py
+  s_7555072531523e::t_9510a013ffe310 105
+switchbot/const/__init__.py
+  s_7555072531523e::t_01e06d4a5e3ee8 110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "261e1eecbd3990740986ab74cf85327819566378",
+  "prompts": {},
+  "sessions": {
+    "s_7555072531523e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d610ed33-8799-4d81-b58d-761535af525d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
