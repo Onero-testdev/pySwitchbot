@@ -1,0 +1,38 @@
+switchbot/const/__init__.py
+  s_e99f0297875622::t_f030e735ff41e9 85
+tests/test_remote_with_screen.py
+  s_e99f0297875622::t_00504e82c887e4 1-50
+switchbot/adv_parsers/remote.py
+  s_e99f0297875622::t_cd167600278e4d 24-28,31-50
+switchbot/adv_parser.py
+  s_e99f0297875622::t_2e900cc030d5df 405-416
+  s_e99f0297875622::t_5be6af9de77407 54
+switchbot/devices/remote_with_screen.py
+  s_e99f0297875622::t_5b10bdfcd6cdee 1-23
+tests/test_adv_parser.py
+  s_e99f0297875622::t_df4e30a607d519 1714-1760
+switchbot/__init__.py
+  s_e99f0297875622::t_26021baf5399b1 71
+  s_e99f0297875622::t_c803429502f0b8 127
+tests/test_short_payload_guards.py
+  s_e99f0297875622::t_63c72c6f46ca58 52
+  s_e99f0297875622::t_81619ecce39654 131-138
+switchbot/devices/device.py
+  s_e99f0297875622::t_5d762fb842ad3b 77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "c68d0a28d05e0c40bba00826942c7bd57dbe9994",
+  "prompts": {},
+  "sessions": {
+    "s_e99f0297875622": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6797fabd-a368-46db-b66b-a0f3c6b00c8d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}
