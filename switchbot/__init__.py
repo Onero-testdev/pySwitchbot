@@ -40,7 +40,6 @@ from .devices.blind_tilt import SwitchbotBlindTilt
 from .devices.bot import Switchbot
 from .devices.bulb import SwitchbotBulb
 from .devices.ceiling_light import SwitchbotCeilingLight
-from .devices.climate_panel import SwitchbotClimatePanel
 from .devices.curtain import SwitchbotCurtain
 from .devices.device import (
     SwitchbotDevice,
@@ -107,7 +106,6 @@ __all__ = [
     "SwitchbotBulb",
     "SwitchbotCandleWarmerLamp",
     "SwitchbotCeilingLight",
-    "SwitchbotClimatePanel",
     "SwitchbotCurtain",
     "SwitchbotDevice",
     "SwitchbotEncryptedDevice",
