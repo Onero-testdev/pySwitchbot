@@ -26,16 +26,7 @@ def process_woremote(
 def process_wouniversal_remote(
     data: bytes | None, mfr_data: bytes | None
 ) -> dict[str, bool | int | None]:
-    """
-    Process Universal Remote adv data.
-
-    The battery level and charging state are encoded in the manufacturer
-    specific data. ADV byte 14 maps to ``mfr_data[7]`` (the manufacturer data
-    starts at ADV byte 5):
-
-    - bit 7: charging state (0 = not charging, 1 = charging)
-    - bits 6-0: battery level (1-100%)
-    """
+    """Process Universal Remote adv data."""
     if mfr_data is None or len(mfr_data) < 8:
         return {
             "battery": None,
@@ -44,6 +35,7 @@ def process_wouniversal_remote(
 
     _LOGGER.debug("mfr_data: %s", mfr_data.hex())
 
+    # mfr_data[7]: bit 7 is charging; bits 6-0 are battery percentage.
     return {
         "battery": mfr_data[7] & 0b01111111,
         "charging": bool((mfr_data[7] >> 7) & 1),
