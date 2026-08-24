@@ -6,8 +6,6 @@ import logging
 from enum import Enum
 from typing import Any, ClassVar
 
-from bleak.backends.device import BLEDevice
-
 from ..const import SwitchbotModel
 from ..const.fan import (
     CirculatorFanProMode,
@@ -335,7 +333,7 @@ class SwitchbotCirculatorFanPro(SwitchbotEncryptedDevice, SwitchbotFan):
 
     _model = SwitchbotModel.CIRCULATOR_FAN_PRO
 
-    # Fan power: ext 0x0F, subcmd 0x41, 0x11 = 开关机, 0x29 = control source
+    # Fan power: ext 0x0F, subcmd 0x41, 0x11 = power, 0x29 = control source
     # (Home Assistant), byte5 0x01 = on / 0x00 = off / 0x02 = toggle.
     _turn_on_command = "570f41112901"
     _turn_off_command = "570f41112900"
@@ -361,41 +359,18 @@ class SwitchbotCirculatorFanPro(SwitchbotEncryptedDevice, SwitchbotFan):
     _command_start_vertical_oscillation: ClassVar[str] = "570f410229ff01"
     _command_stop_vertical_oscillation: ClassVar[str] = "570f410229ff02"
 
-    def __init__(
-        self,
-        device: BLEDevice,
-        key_id: str,
-        encryption_key: str,
-        interface: int = 0,
-        model: SwitchbotModel = SwitchbotModel.CIRCULATOR_FAN_PRO,
-        **kwargs: Any,
-    ) -> None:
-        """Initialize the Circulator Fan Pro."""
-        super().__init__(device, key_id, encryption_key, interface, model, **kwargs)
-
     async def get_basic_info(self) -> dict[str, Any] | None:
         """
         Get device basic info.
 
         The Pro carries all runtime state (fan + night light) in its
-        advertisement, and its GATT basic-info responses differ from the
-        legacy Circulator Fan, so parse only the firmware here and do so
-        defensively.
+        advertisement, so only the firmware is read here.
         """
-        if not (_data := await self._get_basic_info(COMMAND_GET_BASIC_INFO)):
-            return None
         if not (_data1 := await self._get_basic_info(DEVICE_GET_BASIC_SETTINGS_KEY)):
             return None
-
-        _LOGGER.debug(
-            "Circulator Fan Pro basic info: data=%s data1=%s",
-            _data.hex(),
-            _data1.hex(),
-        )
-        info: dict[str, Any] = {}
-        if len(_data1) > 2:
-            info["firmware"] = _data1[2] / 10.0
-        return info
+        if len(_data1) <= 2:
+            return None
+        return {"firmware": _data1[2] / 10.0}
 
     @update_after_operation
     async def set_percentage(self, percentage: int) -> bool:

@@ -30,7 +30,7 @@ class CirculatorFanProMode(Enum):
     """
     Circulator Fan Pro (W1160) running modes.
 
-    Mode 0x04 is hurricane (飓风), not the baby mode of the legacy fan.
+    Mode 0x04 is hurricane, not the baby mode of the legacy fan.
     """
 
     NORMAL = 1
