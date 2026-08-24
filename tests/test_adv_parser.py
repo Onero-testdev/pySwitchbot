@@ -1712,6 +1712,53 @@ def test_remote_passive() -> None:
     )
 
 
+def test_universal_remote_active() -> None:
+    """Test Universal Remote active scan parsing."""
+    ble_device = generate_ble_device("aa:bb:cc:dd:ee:ff", "any")
+    adv_data = generate_advertisement_data(
+        manufacturer_data={
+            2409: b"\xaa\xbb\xcc\xdd\xee\xff\x00\x50\x00\x00\x00\x00\x00\x00\x00\x00"
+        },
+        service_data={"0000fd3d-0000-1000-8000-00805f9b34fb": b"'\x00"},
+        service_uuids=["cba20d00-224d-11e6-9fb8-0002a5d5c51b"],
+        rssi=-66,
+    )
+    result = parse_advertisement_data(ble_device, adv_data)
+    assert result == SwitchBotAdvertisement(
+        address="aa:bb:cc:dd:ee:ff",
+        data={
+            "data": {
+                "battery": 80,
+                "charging": False,
+            },
+            "isEncrypted": False,
+            "model": "'",
+            "modelFriendlyName": "Universal Remote",
+            "modelName": SwitchbotModel.UNIVERSAL_REMOTE,
+            "rawAdvData": b"'\x00",
+        },
+        device=ble_device,
+        rssi=-66,
+        active=True,
+    )
+
+
+def test_universal_remote_charging() -> None:
+    """Test Universal Remote reports the charging bit from byte 14."""
+    ble_device = generate_ble_device("aa:bb:cc:dd:ee:ff", "any")
+    adv_data = generate_advertisement_data(
+        manufacturer_data={
+            2409: b"\xaa\xbb\xcc\xdd\xee\xff\x00\xb7\x00\x00\x00\x00\x00\x00\x00\x00"
+        },
+        service_data={"0000fd3d-0000-1000-8000-00805f9b34fb": b"'\x00"},
+        service_uuids=["cba20d00-224d-11e6-9fb8-0002a5d5c51b"],
+        rssi=-66,
+    )
+    result = parse_advertisement_data(ble_device, adv_data)
+    assert result is not None
+    assert result.data["data"] == {"battery": 55, "charging": True}
+
+
 def test_parse_advertisement_data_hubmini_matter():
     """Test parse_advertisement_data for the HubMini Matter."""
     ble_device = generate_ble_device("aa:bb:cc:dd:ee:ff", "any")
@@ -3847,6 +3894,12 @@ def test_humidifer_with_empty_data() -> None:
                 "motion_detected": True,
                 "temp_alarm": 0,
                 "temperature": 25.5,
+                "on_keystate": 0,
+                "off_keystate": 0,
+                "on_keystate_mode": 0,
+                "on_keystate_counter": 0,
+                "off_keystate_mode": 0,
+                "off_keystate_counter": 0,
             },
             b"\x00\x10\xf3\xd8",
             "Climate Panel",
@@ -3865,6 +3918,36 @@ def test_humidifer_with_empty_data() -> None:
                 "motion_detected": True,
                 "temp_alarm": 0,
                 "temperature": 25.9,
+                "on_keystate": 0,
+                "off_keystate": 0,
+                "on_keystate_mode": 0,
+                "on_keystate_counter": 0,
+                "off_keystate_mode": 0,
+                "off_keystate_counter": 0,
+            },
+            b"\x00\x10\xf3\xd8",
+            "Climate Panel",
+            SwitchbotModel.CLIMATE_PANEL,
+        ),
+        AdvTestCase(
+            b"\xb0\xe9\xfe\x84\x38\x05\x06\x14\x05\x99\x2d\x00\x00\x25\x62\xd4\x00\x0c\x04\x00",
+            b"\x00 _\x00\x10\xf3\xd8@",
+            {
+                "battery": 20,
+                "humidity": 45,
+                "sequence_number": 6,
+                "humidity_alarm": 0,
+                "isOn": False,
+                "is_light": True,
+                "motion_detected": True,
+                "temp_alarm": 0,
+                "temperature": 25.5,
+                "on_keystate": 37,
+                "off_keystate": 98,
+                "on_keystate_mode": 1,
+                "on_keystate_counter": 5,
+                "off_keystate_mode": 3,
+                "off_keystate_counter": 2,
             },
             b"\x00\x10\xf3\xd8",
             "Climate Panel",
@@ -4299,6 +4382,12 @@ def test_adv_active(test_case: AdvTestCase) -> None:
                 "motion_detected": True,
                 "temp_alarm": 0,
                 "temperature": 26.6,
+                "on_keystate": 0,
+                "off_keystate": 0,
+                "on_keystate_mode": 0,
+                "on_keystate_counter": 0,
+                "off_keystate_mode": 0,
+                "off_keystate_counter": 0,
             },
             b"\x00\x10\xf3\xd8",
             "Climate Panel",

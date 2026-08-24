@@ -2,6 +2,33 @@
 
 <!-- version list -->
 
+## v2.5.0 (2026-08-24)
+
+### Chores
+
+- **deps**: Bump pyopenssl from 26.3.0 to 26.4.0
+  ([#553](https://github.com/sblibs/pySwitchbot/pull/553),
+  [`2c2cc77`](https://github.com/sblibs/pySwitchbot/commit/2c2cc772fc191caff8e6f27232c6d259785063b0))
+
+- **pre-commit.ci**: Pre-commit autoupdate ([#556](https://github.com/sblibs/pySwitchbot/pull/556),
+  [`97744a9`](https://github.com/sblibs/pySwitchbot/commit/97744a9d4de0d3024a6742b6ca2378983e242679))
+
+- **pre-commit.ci**: Pre-commit autoupdate ([#554](https://github.com/sblibs/pySwitchbot/pull/554),
+  [`d4723ac`](https://github.com/sblibs/pySwitchbot/commit/d4723ac7ca935e590ffddd57f7addf9afa36fb4b))
+
+- **pre-commit.ci**: Pre-commit autoupdate ([#552](https://github.com/sblibs/pySwitchbot/pull/552),
+  [`ad9998c`](https://github.com/sblibs/pySwitchbot/commit/ad9998c4448cc75f72e21b08fb5d5a60c260a260))
+
+### Features
+
+- Add Universal Remote Control support ([#520](https://github.com/sblibs/pySwitchbot/pull/520),
+  [`2736169`](https://github.com/sblibs/pySwitchbot/commit/273616902782a7e050858d9b71492e7b1f3b8c7d))
+
+- Expose Climate Panel keystate for HA automations
+  ([#537](https://github.com/sblibs/pySwitchbot/pull/537),
+  [`b592cbb`](https://github.com/sblibs/pySwitchbot/commit/b592cbb6bd708c85d52e913d0d33d778c6c9dcaa))
+
+
 ## v2.4.1 (2026-08-07)
 
 ### Bug Fixes
