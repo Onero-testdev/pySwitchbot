@@ -1,0 +1,22 @@
+tests/test_adv_parser.py
+  s_7555072531523e::t_68ec7b5e485a44 1750
+  s_7555072531523e::t_43ba26c4db135a 1719
+tests/test_short_payload_guards.py
+  s_7555072531523e::t_5b6b4ecb07b31e 132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d1ac8c482fdc3c51409e43ddc286c84e04c12a02",
+  "prompts": {},
+  "sessions": {
+    "s_7555072531523e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d610ed33-8799-4d81-b58d-761535af525d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}

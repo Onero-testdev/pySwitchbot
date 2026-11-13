@@ -1,0 +1,62 @@
+switchbot/const/__init__.py
+  s_a268ce7d0b7e22::t_806eaeff179780 110
+switchbot/devices/light_strip.py
+  s_8eb67cfb690df0::t_3e4eb304ee88a7 387-395
+  s_a268ce7d0b7e22::t_09e87969b4d3d9 34-43
+  s_8eb67cfb690df0::t_e26279cce1a05b 467,473
+  s_8eb67cfb690df0::t_8d0a2fb8fb513d 465-466
+  s_a268ce7d0b7e22::t_71099da74df76e 378
+  s_8eb67cfb690df0::t_3e7b1e4a86d792 468-472,483
+  s_a268ce7d0b7e22::t_78e4901d288def 370-377,379-386,396-464,474-482,484-490
+  s_a268ce7d0b7e22::t_10e49051070608 6-11,13
+switchbot/devices/device.py
+  s_a268ce7d0b7e22::t_4e78e8a1e8ec4b 105
+tests/test_strip_light.py
+  s_8eb67cfb690df0::t_e07eebca244b61 199-205
+  s_a268ce7d0b7e22::t_363aa6a7104da3 491-584,591-600
+  s_8eb67cfb690df0::t_8d0a2fb8fb513d 585-586
+  s_8eb67cfb690df0::t_6d50ffe13e908f 587-590,601-607
+  s_a268ce7d0b7e22::t_b819d686764098 389-392
+  s_a268ce7d0b7e22::t_157faa92045561 58
+  s_a268ce7d0b7e22::t_1f2a98f8886f63 17,32
+switchbot/adv_parser.py
+  s_a268ce7d0b7e22::t_44f95208cf2bbe 35
+  s_a268ce7d0b7e22::t_8c1316562d9338 681-692
+switchbot/adv_parsers/light_strip.py
+  s_a268ce7d0b7e22::t_9f6a2ae36b276e 57-69
+tests/__init__.py
+  s_a268ce7d0b7e22::t_fa4a581cbfb249 99-117
+switchbot/__init__.py
+  s_a268ce7d0b7e22::t_2bd39750affef9 60
+  s_a268ce7d0b7e22::t_8b7f1b049badf9 130
+tests/test_adv_parser.py
+  s_a268ce7d0b7e22::t_e6c4bffef3c46c 4475-4480
+  s_a268ce7d0b7e22::t_6e0a5f9bd008ec 3705-3721
+  s_a268ce7d0b7e22::t_e1b78870bed8ed 4157-4173
+switchbot/const/light.py
+  s_a268ce7d0b7e22::t_5bab7cdceacd09 46-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "97398371c0617afbaeae61d7a0a50e30aac25339",
+  "prompts": {},
+  "sessions": {
+    "s_8eb67cfb690df0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "98bf04bf-4447-4909-b7fd-f94c50161dcc",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    },
+    "s_a268ce7d0b7e22": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fffb7f12-c057-4cae-8bbf-f2b365caf2a5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "testdev <testdev@onero.com>"
+    }
+  }
+}

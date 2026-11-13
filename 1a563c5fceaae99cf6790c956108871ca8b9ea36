@@ -1,0 +1,39 @@
+tests/__init__.py
+  s_7555072531523e::t_7afd8e19586929 124-136,139-148
+  s_7555072531523e::t_16cc352bab6880 137-138
+tests/test_adv_parser.py
+  s_7555072531523e::t_4d56386e3bc03b 3608-3609,3632-3633,4016-4017
+  s_7555072531523e::t_5a3a7f0d68dc99 3610-3613,3634-3637
+  s_7555072531523e::t_1e692a444b3f70 3638-3643
+  s_7555072531523e::t_3281eb5dcf2086 3644-3655,3658-3661
+  s_7555072531523e::t_6403a504ea628a 3656-3657
+  s_7555072531523e::t_b111802e29a212 4018-4021
+tests/test_climate_panel.py
+  s_7555072531523e::t_641a69db6f92be 1-65,68-71
+  s_7555072531523e::t_fbfbc8ec185e8e 66-67
+switchbot/adv_parsers/climate_panel.py
+  s_7555072531523e::t_a2c8ff9d09d1cc 31-34,42,55-58
+  s_7555072531523e::t_180f2173c257ab 35-41,53-54
+switchbot/__init__.py
+  s_7555072531523e::t_3b3ee639aa8a0d 39
+  s_7555072531523e::t_76c7c688bb15eb 98
+switchbot/devices/climate_panel.py
+  s_7555072531523e::t_fdd064562b7029 1-64,73-87
+  s_7555072531523e::t_18a125fae61e2a 65-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "1a563c5fceaae99cf6790c956108871ca8b9ea36",
+  "prompts": {},
+  "sessions": {
+    "s_7555072531523e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d610ed33-8799-4d81-b58d-761535af525d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    }
+  }
+}
