@@ -1,0 +1,22 @@
+switchbot/devices/fan.py
+  s_a1987bd26e8b6e::t_15a577be4ae918 363-365,367-368
+tests/test_fan.py
+  s_a1987bd26e8b6e::t_15a577be4ae918 591-594,600
+  s_a1987bd26e8b6e::t_3392365dd7c43e 589,963-984
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b5dfb56fd8ca2759bc172dc991b8dfdfd1ab8b97",
+  "prompts": {},
+  "sessions": {
+    "s_a1987bd26e8b6e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1d2a4-3e8c-7421-aaa9-30433ddcd209",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Fan Kai <fankai@onero.com>"
+    }
+  }
+}
